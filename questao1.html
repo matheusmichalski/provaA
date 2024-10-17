@@ -1,0 +1,47 @@
+<script>
+
+	/*
+		Questão 1 – Cálculo do Imposto de Renda – Pontos: 3,00
+		Faça um programa para ler o nome e salário bruto de um funcionário e conforme a tabela abaixo
+		fazer cálculo do salário líquido do funcionário (descontando o imposto de renda)
+		Salário Bruto Imposto de Renda
+		até R$ 2.529,20 0,00 %
+		De R$ 2.259,21 a R$ 2.826,65 7,50 %
+		De R$ 2.826,66 a R$ 3.751,05 15,00 %
+		De R$ 3.751,06 a R$ 4.664,68 22,50 %
+		Acima de R$ 4.664,68 27,50 %
+		No final, o programa deve exibir o nome do usuário, seu salário bruto, valor de imposto de renda a
+		pagar e seu salário líquido aplicando o desconto de imposto de renda.
+	*/
+
+
+	const nome = prompt('Informe seu nome');
+	const salarioBruto = Number(prompt('informe seu salário bruto'));
+	let impostoDeRenda = 0;
+
+	if (salarioBruto < 2259.20) {
+		impostoDeRenda = 0
+	} else if (salarioBruto >= 2529.21 && salarioBruto <= 2826.65) {
+		impostoDeRenda = salarioBruto * 0.075
+	} else if (salarioBruto >= 2826.66 && salarioBruto <= 3751.05) {
+		impostoDeRenda = salarioBruto * 0.15
+	} else if (salarioBruto >= 3751.06 && salarioBruto <= 4664.68) {
+		impostoDeRenda = salarioBruto * 0.225
+	} else if (salarioBruto > 2664.68) {
+		impostoDeRenda = salarioBruto * 0.275
+	}
+
+	const salarioLiquido = salarioBruto - impostoDeRenda
+
+	document.write(`
+	Nome do usuário: ${nome}<br>
+	Salário Bruto: R$:${salarioBruto.toFixed(2).replace('.', ',')}<br>
+	Valor do Imposto de Renda: R$${impostoDeRenda.toFixed(2).replace('.', ',')}<br>
+	Salário Liquido: R$${salarioLiquido.toFixed(2).replace('.', ',')}
+`)
+
+
+
+
+
+</script>

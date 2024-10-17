@@ -1,0 +1,47 @@
+<script>
+
+  /*
+    Questão 2 – Cálculo do Conceito - Pontos: 3,00
+    Faça um algoritmo para calcular o conceito de um aluno, o conceito é formado por 3 notas de
+    avaliação e a média das listas de exercícios (MLE). Calcular a média de aproveitamento (Conceito),
+    usando a fórmula fornecida e escrever o nome do aluno, disciplina e conceito de acordo com a
+    tabela de Conceitos:
+    Conceito = ( N1*2 + N2*3 + N3*4 + MLE ) / 10
+    A atribuição de conceitos obedece a tabela abaixo:
+  */
+
+
+
+
+  const aluno = prompt('Informe o nome do aluno')
+  const disciplina = prompt('Informe a disciplina do aluno')
+  const nota1 = Number(prompt('Informe sua nota 1'))
+  const nota2 = Number(prompt('Informe sua nota 2'))
+  const nota3 = Number(prompt('Informe sua nota 3'))
+  const notaMLE = Number(prompt('Informe sua média de exercícios(MLE)'))
+
+  const media = (nota1 * 2 + nota2 * 3 + nota3 * 4 + notaMLE) / 10
+  let conceito = '';
+  if (media >= 9) {
+    conceito = 'A'
+  } else if (media >= 7.5 && media < 9.0) {
+    conceito = 'B'
+  } else if (media >= 6.0 && media < 7.5) {
+    conceito = 'C'
+  } else if (media < 6.0) {
+    conceito = 'D'
+  }
+
+  `nome do aluno, disciplina e conceito de acordo com a
+tabela de Conceitos:`
+
+  document.write(`
+  Nome do aluno: ${aluno}<br>
+  Disciplina: ${disciplina}<br>
+  Conceito: ${conceito}
+  `)
+
+
+
+
+</script>

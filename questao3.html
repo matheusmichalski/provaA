@@ -1,0 +1,105 @@
+<script>
+
+  /*
+  Questão 3 – Levantamento de Doações - Pontos: 4,00
+  Com o período de chuvas e muitas pessoas que foram afetadas pelas tempestades, uma empresa
+  decidiu arrecadar doações das pessoas que gostariam de alguma forma ajudar. Faça um
+  programa em Javascript que leia nome do usuário e se ele gostaria de doar algo:
+  >>> se gostaria de doar algo?
+  (S)im:
+  • Digite (1) para doar brinquedos
+  • Digite (2) para doar roupas
+  • Digite (3) para doar itens de higiene pessoal
+  • Digite (12) para doar brinquedos e roupas
+  • Digite (13) para doar brinquedos e higiene pessoal
+  • Digite (23) para doar roupas e itens de higiene pessoal
+  • Digite (123) para doar brinquedos, roupas e itens de higiene pessoal.
+  • Lembrando que para códigos digitados errados, deve aparecer
+  mensagem de “Código de Tipo de Doação Inválido !!!”.
+  No final, exibir seguinte mensagem:
+  • <Nome Completo do Participante> obrigado por doar <tipo de
+  doação>, e o número atualizado de doações por tipo.
+  (N)ão: Somente agradecer a pessoa (exibindo nome) pela participação, e
+  informar o número de doações por tipo alcançados até o momento.
+  Observação
+  Quando o usuário for executar o programa outros usuários já responderam e temos o seguinte
+  número contabilizado de doaçoes (itens):
+  79 brinquedos
+  77 roupas
+  73 higiene pessoal 
+  
+  
+  */
+
+  let doacoes = {
+    brinquedos: 79,
+    roupas: 77,
+    higienePessoal: 73,
+  }
+
+  console.log(doacoes)
+
+
+  const nome = prompt('Informe seu nome completo:')
+  const doacao = prompt(`Gostaria de doar algo?`).toLowerCase();
+
+  if (doacao == 's' || doacao == 'sim') {
+    const codigoDoacao = prompt(
+      `Informe seu código de doação: 
+  • Digite (1) para doar brinquedos;
+  • Digite (2) para doar roupas;
+  • Digite (3) para doar itens de higiene pessoal;
+  • Digite (12) para doar brinquedos e roupas;
+  • Digite (13) para doar brinquedos e higiene pessoal;
+  • Digite (23) para doar roupas e itens de higiene pessoal;
+  • Digite (123) para doar brinquedos, roupas e itens de higiene pessoal.
+      `)
+    switch (codigoDoacao) {
+      case '1':
+        doacoes.brinquedos++
+        break;
+      case '2':
+        doacoes.roupas++
+        break;
+      case '3':
+        doacoes.higienePessoal++
+        break
+      case '12':
+        doacoes.brinquedos++
+        doacoes.roupas++
+        break
+      case '13':
+        doacoes.brinquedos++
+        doacoes.higienePessoal++
+        break
+      case '23':
+        doacoes.roupas++
+        doacoes.higienePessoal++
+        break
+      case '123':
+        doacoes.brinquedos
+        doacoes.roupas++
+        doacoes.higienePessoal++
+        break
+    }
+
+    document.write(`
+    ${nome}, obrigado por doar.<br> 
+    Código de doação: ${codigoDoacao}. <br>
+    Doações:
+      <li>Brinquedos:${doacoes.brinquedos}, </li>
+      <li>Roupas:${doacoes.roupas},</li>
+      <li>Itens de higiene pessoal:${doacoes.higienePessoal}</li>
+  `)
+
+  } else if (doacao == 'n' || doacao == 'não' || doacao == 'nao') {
+    document.write(`Muito obrigado pela participação, ${nome}<br>
+    Doações: Brinquedos${doacoes.brinquedos}, Roupas${doacoes.roupas}, Itens de higiene pessoal${doacoes.higienePessoal}
+    `)
+  } else {
+    alert('Valor inválido')
+    window.location.reload()
+  }
+
+
+</script>
